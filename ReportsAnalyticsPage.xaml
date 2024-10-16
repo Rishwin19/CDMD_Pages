@@ -1,0 +1,45 @@
+﻿<Window x:Class="CDMD_Project.Pages.ReportsAnalyticsPage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CDMD_Project.Pages"
+        mc:Ignorable="d"
+        Title="ReportsAnalyticsPage" Height="450" Width="800">
+    <Grid>
+        <TabControl>
+            <!-- Tab for Patient Reports -->
+            <TabItem Header="Patient Reports">
+                <StackPanel Margin="10">
+                    <TextBlock Text="Select Patient:" FontWeight="Bold" />
+                    <ComboBox x:Name="PatientComboBox" Width="300" Margin="0,0,0,10" />
+
+                    <Button Content="Generate Report" Width="150" Click="GenerateReportButton_Click" />
+                    <Button Content="Export Data" Width="150" Margin="10,0,0,0" Click="ExportDataButton_Click" />
+                </StackPanel>
+            </TabItem>
+
+            <!-- Tab for Group Reports -->
+            <TabItem Header="Group Reports">
+                <StackPanel Margin="10">
+                    <TextBlock Text="Select Group:" FontWeight="Bold" />
+                    <ComboBox x:Name="GroupComboBox" Width="300" Margin="0,0,0,10" />
+
+                    <Button Content="Generate Report" Width="150" Click="GenerateGroupReportButton_Click" />
+                    <Button Content="Export Data" Width="150" Margin="10,0,0,0" Click="ExportGroupDataButton_Click" />
+                </StackPanel>
+            </TabItem>
+
+            <!-- Tab for Trends and Statistics -->
+            <TabItem Header="Trends and Statistics">
+                <StackPanel Margin="10">
+                    <TextBlock Text="View Trends and Statistics" FontWeight="Bold" />
+                    <DataGrid x:Name="TrendsDataGrid" Height="300" Margin="0,0,0,10" />
+
+                    <Button Content="Download Report (PDF)" Width="150" Click="DownloadPdfButton_Click" />
+                    <Button Content="Download Report (CSV)" Width="150" Margin="10,0,0,0" Click="DownloadCsvButton_Click" />
+                </StackPanel>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>

@@ -1,0 +1,56 @@
+﻿<Window x:Class="CDMD_Project.Pages.SettingsDeviceManagementPage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CDMD_Project.Pages"
+        mc:Ignorable="d"
+        Title="SettingsDeviceManagementPage" Height="450" Width="800">
+    <Grid>
+        <TabControl>
+            <!-- Tab for Device Management -->
+            <TabItem Header="Device Management">
+                <StackPanel Margin="10">
+                    <TextBlock Text="Connected Devices:" FontWeight="Bold" />
+                    <ListBox x:Name="ConnectedDevicesListBox" Height="200" Margin="0,0,0,10" />
+
+                    <Button Content="Pair Device" Width="150" Click="PairDeviceButton_Click" />
+                    <Button Content="Unpair Device" Width="150" Margin="10,0,0,0" Click="UnpairDeviceButton_Click" />
+                </StackPanel>
+            </TabItem>
+
+            <!-- Tab for Device Settings -->
+            <TabItem Header="Device Settings">
+                <StackPanel Margin="10">
+                    <TextBlock Text="Device Settings:" FontWeight="Bold" />
+                    <ComboBox x:Name="DeviceSettingsComboBox" Width="300" Margin="0,0,0,10" />
+
+                    <TextBlock Text="Data Synchronization Frequency:" FontWeight="Bold" />
+                    <ComboBox x:Name="DataSynchronizationFrequencyComboBox" Width="300" Margin="0,0,0,10" />
+
+                    <Button Content="Save Changes" Width="150" Click="SaveChangesButton_Click" />
+                </StackPanel>
+            </TabItem>
+
+            <!-- Tab for Device Permissions -->
+            <TabItem Header="Device Permissions">
+                <StackPanel Margin="10">
+                    <TextBlock Text="Device Permissions:" FontWeight="Bold" />
+                    <DataGrid x:Name="DevicePermissionsDataGrid" Height="300" Margin="0,0,0,10" />
+
+                    <Button Content="Update Permissions" Width="150" Click="UpdatePermissionsButton_Click" />
+                </StackPanel>
+            </TabItem>
+
+            <!-- Tab for Firmware Updates -->
+            <TabItem Header="Firmware Updates">
+                <StackPanel Margin="10">
+                    <TextBlock Text="Available Firmware Updates:" FontWeight="Bold" />
+                    <ListBox x:Name="AvailableFirmwareUpdatesListBox" Height="200" Margin="0,0,0,10" />
+
+                    <Button Content="Update Firmware" Width="150" Click="UpdateFirmwareButton_Click" />
+                </StackPanel>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>

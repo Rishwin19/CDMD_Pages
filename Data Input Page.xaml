@@ -1,0 +1,54 @@
+﻿<Window x:Class="CDMD_Project.Data_Input_Page"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CDMD_Project"
+        mc:Ignorable="d"
+        Title="Data_Input_Page" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Form to input manual data -->
+        <StackPanel Grid.Column="0" Grid.Row="1" Orientation="Vertical">
+            <TextBlock Text="Manual Data Input:" Margin="10"/>
+            <TextBox x:Name="DateTextBox" Margin="10" Width="100" HorizontalAlignment="Left"/>
+            <TextBox x:Name="TimeTextBox" Margin="10" Width="100" HorizontalAlignment="Left"/>
+            <TextBox x:Name="GlucoseTextBox" Margin="10" Width="100" HorizontalAlignment="Left"/>
+            <TextBox x:Name="HeartRateTextBox" Margin="10" Width="100" HorizontalAlignment="Left"/>
+            <Button x:Name="SaveButton" Margin="10" Content="Save" Click="SaveButton_Click"/>
+        </StackPanel>
+
+        <!-- Option to edit or correct previously entered health data -->
+        <DataGrid x:Name="DataGrid" Grid.Column="1" Grid.Row="1" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Date" Binding="{Binding Date}"/>
+                <DataGridTextColumn Header="Time" Binding="{Binding Time}"/>
+                <DataGridTextColumn Header="Glucose" Binding="{Binding Glucose}"/>
+                <DataGridTextColumn Header="Heart Rate" Binding="{Binding HeartRate}"/>
+                <DataGridTemplateColumn Header="Edit">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button x:Name="EditButton" Content="Edit" Click="EditButton_Click"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <!-- Upload files or reports from wearable devices -->
+        <StackPanel Grid.Column="0" Grid.Row="2" Orientation="Horizontal">
+            <Button x:Name="BrowseButton" Margin="10" Content="Browse" Click="BrowseButton_Click"/>
+            <TextBox x:Name="FilePathTextBox" Margin="10" Width="300" HorizontalAlignment="Left"/>
+            <Button x:Name="UploadButton" Margin="10" Content="Upload" Click="UploadButton_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>

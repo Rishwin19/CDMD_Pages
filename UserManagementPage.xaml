@@ -1,0 +1,48 @@
+﻿<Window x:Class="CDMD_Project.Pages.UserManagementPage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CDMD_Project.Pages"
+        mc:Ignorable="d"
+        Title="UserManagementPage" Height="450" Width="800">
+    <Grid>
+        <TabControl>
+            <!-- Tab for User Management -->
+            <TabItem Header="User  Management">
+                <StackPanel Margin="10">
+                    <TextBlock Text="Users:" FontWeight="Bold" />
+                    <DataGrid x:Name="UsersDataGrid" Height="300" Margin="0,0,0,10" />
+
+                    <Button Content="Add User" Width="150" Click="AddUser Button_Click" />
+                    <Button Content="Edit User" Width="150" Margin="10,0,0,0" Click="EditUser Button_Click" />
+                    <Button Content="Remove User" Width="150" Margin="10,0,0,0" Click="RemoveUser Button_Click" />
+                </StackPanel>
+            </TabItem>
+
+            <!-- Tab for Role Management -->
+            <TabItem Header="Role Management">
+                <StackPanel Margin="10">
+                    <TextBlock Text="Roles:" FontWeight="Bold" />
+                    <ListBox x:Name="RolesListBox" Height="200" Margin="0,0,0,10" />
+
+                    <TextBlock Text="Access Rights:" FontWeight="Bold" />
+                    <CheckBox x:Name="ViewPatientDataCheckBox" Content="View Patient Data" />
+                    <CheckBox x:Name="ViewTreatmentPlansCheckBox" Content="View Treatment Plans" Margin="0,10,0,0" />
+
+                    <Button Content="Assign Roles" Width="150" Click="AssignRolesButton_Click" />
+                </StackPanel>
+            </TabItem>
+
+            <!-- Tab for User Activity -->
+            <TabItem Header="User  Activity">
+                <StackPanel Margin="10">
+                    <TextBlock Text="User  Activity Logs:" FontWeight="Bold" />
+                    <DataGrid x:Name="UserActivityLogsDataGrid" Height="300" Margin="0,0,0,10" />
+
+                    <Button Content="Refresh Logs" Width="150" Click="RefreshLogsButton_Click" />
+                </StackPanel>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>

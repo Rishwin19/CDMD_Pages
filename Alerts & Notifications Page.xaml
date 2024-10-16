@@ -1,0 +1,50 @@
+﻿<Window x:Class="CDMD_Project.Alerts___Notifications_Page"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CDMD_Project"
+        mc:Ignorable="d"
+        Title="Alerts___Notifications_Page" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- List of triggered alerts -->
+        <DataGrid x:Name="AlertsDataGrid" Grid.Column="0" Grid.Row="1" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Alert Type" Binding="{Binding AlertType}"/>
+                <DataGridTextColumn Header="Value" Binding="{Binding Value}"/>
+                <DataGridTextColumn Header="Threshold" Binding="{Binding Threshold}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <!-- Ability to set thresholds for different health parameters -->
+        <StackPanel Grid.Column="1" Grid.Row="1" Orientation="Vertical">
+            <TextBlock Text="Set Thresholds:" Margin="10"/>
+            <ComboBox x:Name="ParameterComboBox" Margin="10" ItemsSource="{Binding Parameters}"/>
+            <TextBox x:Name="ThresholdTextBox" Margin="10" Width="100"/>
+            <Button x:Name="SetThresholdButton" Margin="10" Content="Set Threshold" Click="SetThresholdButton_Click"/>
+        </StackPanel>
+
+        <!-- Real-time notifications for critical situations -->
+        <TextBlock x:Name="NotificationTextBlock" Grid.Column="0" Grid.Row="2" Margin="10" FontWeight="Bold"/>
+
+        <!-- History of previous alerts and actions taken -->
+        <DataGrid x:Name="HistoryDataGrid" Grid.Column="1" Grid.Row="2" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Alert Type" Binding="{Binding AlertType}"/>
+                <DataGridTextColumn Header="Value" Binding="{Binding Value}"/>
+                <DataGridTextColumn Header="Threshold" Binding="{Binding Threshold}"/>
+                <DataGridTextColumn Header="Action Taken" Binding="{Binding ActionTaken}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>

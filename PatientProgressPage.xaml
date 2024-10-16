@@ -1,0 +1,65 @@
+﻿<Window x:Class="CDMD_Project.PatientProgressPage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CDMD_Project"
+        mc:Ignorable="d"
+        Title="PatientProgressPage" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Patient Information Section -->
+        <StackPanel Grid.Column="0" Grid.Row="0" Margin="10">
+            <TextBlock Text="Patient Information" FontWeight="Bold" FontSize="16"/>
+            <TextBlock Text="Name: " Margin="5"/>
+            <TextBlock Text="John Doe" Margin="5"/>
+            <TextBlock Text="Date of Birth: " Margin="5"/>
+            <TextBlock Text="01/01/1990" Margin="5"/>
+        </StackPanel>
+
+        <!-- Historical Data Section -->
+        <TabControl Grid.Column="1" Grid.Row="0" Margin="10">
+            <TabItem Header="Historical Data">
+                <DataGrid x:Name="historicalDataGrid" AutoGenerateColumns="False">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Date" Binding="{Binding Date}"/>
+                        <DataGridTextColumn Header="Test Result" Binding="{Binding TestResult}"/>
+                        <DataGridTextColumn Header="Treatment Plan" Binding="{Binding TreatmentPlan}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </TabItem>
+        </TabControl>
+
+        <!-- Graphical Progress Reports Section -->
+        <Grid Grid.Column="1" Grid.Row="1" Margin="10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            
+            <StackPanel Grid.Column="1" Orientation="Vertical">
+                <RadioButton Content="Weeks" GroupName="TimePeriod"/>
+                <RadioButton Content="Months" GroupName="TimePeriod"/>
+                <RadioButton Content="Years" GroupName="TimePeriod"/>
+            </StackPanel>
+        </Grid>
+
+        <!-- Notes Section -->
+        <Expander Grid.Column="0" Grid.Row="1" Margin="10" Header="Notes">
+            <TextBox x:Name="notesTextBox" AcceptsReturn="True" Height="100" Width="200"/>
+        </Expander>
+
+        <!-- Automated Suggestions Section -->
+        <Expander Grid.Column="1" Grid.Row="1" Margin="10" Header="Automated Suggestions">
+            <ListBox x:Name="suggestionsListBox" DisplayMemberPath="Suggestion"/>
+        </Expander>
+    </Grid>
+</Window>

@@ -1,0 +1,51 @@
+﻿<Window x:Class="CDMD_Project.TreatmentPlanPage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CDMD_Project"
+        mc:Ignorable="d"
+        Title="TreatmentPlanPage" Height="450" Width="800">
+    <Grid>
+        <TabControl>
+            <!-- Tab for Treatment Plans -->
+            <TabItem Header="Treatment Plans">
+                <StackPanel Margin="10">
+                    <TextBlock Text="Patient Name:" FontWeight="Bold" />
+                    <TextBox x:Name="PatientNameTextBox" Width="300" Margin="0,0,0,10" />
+
+                    <TextBlock Text="Medication:" FontWeight="Bold" />
+                    <TextBox x:Name="MedicationTextBox" Width="300" Margin="0,0,0,10" />
+
+                    <TextBlock Text="Diet:" FontWeight="Bold" />
+                    <TextBox x:Name="DietTextBox" Width="300" Margin="0,0,0,10" />
+
+                    <TextBlock Text="Exercise:" FontWeight="Bold" />
+                    <TextBox x:Name="ExerciseTextBox" Width="300" Margin="0,0,0,10" />
+
+                    <Button Content="Save Treatment Plan" Width="150" Click="SaveButton_Click" />
+                </StackPanel>
+            </TabItem>
+
+            <!-- Tab for Tracking Adherence -->
+            <TabItem Header="Adherence Tracking">
+                <StackPanel Margin="10">
+                    <TextBlock Text="Daily Medication Reminders" FontWeight="Bold" />
+                    <ListBox x:Name="MedicationRemindersListBox" Height="200" />
+
+                    <Button Content="Add Reminder" Width="150" Click="AddReminderButton_Click" />
+                </StackPanel>
+            </TabItem>
+
+            <!-- Tab for Wearable Data -->
+            <TabItem Header="Wearable Data Trends">
+                <StackPanel Margin="10">
+                    <TextBlock Text="Update Recommendations" FontWeight="Bold" />
+                    <TextBox x:Name="RecommendationsTextBox" Width="300" Margin="0,0,0,10" />
+
+                    <Button Content="Update Recommendations" Width="150" Click="UpdateRecommendationsButton_Click" />
+                </StackPanel>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>
